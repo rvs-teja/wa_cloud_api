@@ -1,35 +1,63 @@
 # WaCloudApi
 
-TODO: Delete this and the text below, and describe your gem
+WaCloudApi is a ruby gem that provides a convinient way to interact with Whatsapp Cloud API allowing developer to integrate Whatsapp messaging capabilities into Ruby / Rails applications.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/wa_cloud_api`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-## Installation
-
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
+# Installation
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```ruby
+$ bundle add wa_cloud_api
+```
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```ruby
+$ gem install wa_cloud_api
+```
 
-## Usage
+# Usage
 
-TODO: Write usage instructions here
+### Configuration
+
+Before using the gem, you need to configure it with your WhatsApp Cloud API credentials. You can do this by using the following code:
+
+```ruby
+require 'wa_cloud_api'
+
+WaCloudApi,configure do |config|
+    config.phone_number_id = 'your_phone_number_id'
+    config.token = 'your_token'
+end
+```
+
+### Features
+
+- Text Message
+
+#### Text Message
+
+To send a text message to a phone number. 
+
+Parameters
+
+1. `to`: (Required) The phone number of the recipient. It should be in international format
+2. `body`: (Required) The actual text message you want to send
+3. `preview_url`: (Optional) A boolean parameter whether a URL preview should be generated for the links in the message. By default it is set to false
+
+```ruby
+WaCloudApi::Message::Text.new(
+  to: 'recipient_phone_number ', 
+  body: 'This is a test message',
+).deliver
+```
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`. 
+
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/wa_cloud_api. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/wa_cloud_api/blob/main/CODE_OF_CONDUCT.md).
-
-## Code of Conduct
-
-Everyone interacting in the WaCloudApi project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/wa_cloud_api/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/rvs-teja/wa_cloud_api. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/rvs-teja/wa_cloud_api/blob/main/CODE_OF_CONDUCT.md).
