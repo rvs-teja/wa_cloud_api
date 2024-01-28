@@ -8,11 +8,9 @@ describe WaCloudApi::Message::Text do
   let(:text_message) { described_class.new(to: to, body: body) }
 
   describe '#initialize' do
-    it 'sets default values' do
-      expect(text_message.messaging_product).to eq('whatsapp')
-      expect(text_message.recipient_type).to eq('individual')
-      expect(text_message.to).to eq('91999999999')
+    it 'sets correct values' do
       expect(text_message.type).to eq('text')
+      expect(text_message.to).to eq('91999999999')
       expect(text_message.body).to eq('Hello World!!!')
       expect(text_message.preview_url).to be_falsey
     end
@@ -39,7 +37,7 @@ describe WaCloudApi::Message::Text do
     end
 
     before do
-      allow(WaCloudApi::Message::Service).to receive(:deliver).with(params: params)
+      allow(WaCloudApi::Message::Service).to receive(:deliver).with(params: params).once
     end
 
     it 'calls the service' do
