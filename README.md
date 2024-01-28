@@ -24,7 +24,7 @@ Before using the gem, you need to configure it with your WhatsApp Cloud API cred
 ```ruby
 require 'wa_cloud_api'
 
-WaCloudApi,configure do |config|
+WaCloudApi.configure do |config|
     config.phone_number_id = 'your_phone_number_id'
     config.token = 'your_token'
 end
