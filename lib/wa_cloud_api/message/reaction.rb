@@ -1,3 +1,5 @@
+require 'json'
+
 require_relative 'base'
 
 module WaCloudApi
@@ -7,7 +9,7 @@ module WaCloudApi
 
       def initialize(to:, message_id:, emoji:)
         @message_id = message_id
-        @emoji = emoji
+        @emoji = JSON.parse("\"#{emoji}\"").encode('utf-8')
         super(to: to, type: 'reaction')
       end
 
