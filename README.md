@@ -34,8 +34,9 @@ end
 
 - Text Message
 - Reaction
+- Location
 
-#### Text Message
+### Text Message
 
 To send a text message to a phone number. 
 
@@ -52,7 +53,7 @@ WaCloudApi::Message::Text.new(
 ).deliver
 ```
 
-#### Reaction
+### Reaction
 
 To send a reaction to a message
 
@@ -64,9 +65,31 @@ Parameters
 
 ```ruby
 WaCloudApi::Message::Reaction.new(
-  to: 'recipient_phone_number ',
+  to: 'recipient_phone_number',
   message_id: 'whatsapp_message_id',
   emoji: 'emoji'
+)
+```
+
+### Location
+
+To send a location to a phone number
+
+Parameters
+
+1. `to`: (Required) The phone number of the recipient. It should be in international format
+2. `longitude`: (Required) Longitude of the location
+3. `latitude`: (Required) Latitude of the location
+4. `name`: (Optional) Name of the location
+5. `address`: (Optional) Address of the location
+
+```ruby
+WaCloudApi::Message::Location.new(
+  to: 'recipient_phone_number',
+  longitude: 'longitude',
+  latitude: 'latitude',
+  name: 'location_name',
+  address: 'location_address'
 )
 ```
 
