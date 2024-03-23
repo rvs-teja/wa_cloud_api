@@ -3,6 +3,7 @@
 require_relative 'wa_cloud_api/version'
 require_relative 'wa_cloud_api/message/text'
 require_relative 'wa_cloud_api/message/reaction'
+require_relative 'wa_cloud_api/message/location'
 require_relative 'wa_cloud_api/configuration'
 
 module WaCloudApi
