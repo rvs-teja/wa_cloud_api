@@ -68,7 +68,7 @@ WaCloudApi::Message::Reaction.new(
   to: 'recipient_phone_number',
   message_id: 'whatsapp_message_id',
   emoji: 'emoji'
-)
+).deliver
 ```
 
 ### Location
@@ -90,7 +90,7 @@ WaCloudApi::Message::Location.new(
   latitude: 'latitude',
   name: 'location_name',
   address: 'location_address'
-)
+).deliver
 ```
 
 ## Development
